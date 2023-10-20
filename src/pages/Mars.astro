@@ -1,0 +1,47 @@
+<div class="planetStructure">
+    <img class="planet" src="../../public/img/mars.png"/>
+    <div class="planetInfo">
+        <h2>Mars</h2>
+        <ul>
+            <li><p>Diamètre moyen : 6 794 km</p> </li>
+            <li><p>Masse (Terre = 1) 0,11 soit 0,642.1021 t</p> </li>
+            <li><p>Masse volumique moyenne : 3 933 kg/m</p> </li>
+            <p><b>Composition:</b>Le manteau serait principalement composé d'olivine et de pyroxènes, des minéraux riches en fer et en magnésium. La croûte forme une enveloppe, composée de roches volcaniques.
+            </p>
+        </ul>
+       
+    </div>
+</div>
+
+<style>
+    .planetStructure {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        column-gap: 40px;
+        margin: 64px;
+
+    }
+
+    .planetInfo {
+        font-family: sans-serif;
+        width: 40%;
+        border-radius: 30px;
+        border: 2px solid #FFF;
+        background: linear-gradient(293deg, rgba(255, 255, 255, 0.20) 0%, rgba(0, 0, 0, 0.00) 0%);
+        padding: 32px;
+        backdrop-filter: blur(5px);;
+    }
+
+
+    .planet {
+        width: 30%;
+    }
+
+    h2 {
+        font-style: normal;
+        font-family: spaceProject;
+        text-transform: uppercase;
+    }
+</style>

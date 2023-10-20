@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Jupiter from './Jupiter.astro';
+import Mars from './Mars.astro';
+import Mercury from './Mercury.astro';
+import Neptune from './Neptune.astro';
+import Saturne from './Saturne.astro';
+import SolarSystem from './SolarSystem.astro';
+import Terre from './Terre.astro';
+import Uranus from './Uranus.astro';
+import Venus from './Venus.astro';
+---
+
+<Layout title="Welcome to Astro."></Layout>
+<div x-data="{ activeTab:  0 }">
+  <div class="carouselPlanet">
+    <div :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0" id="mercury"><Mercury></Mercury></div>
+    <div :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1" id="venus"><Venus></Venus></div>
+    <div :class="{ 'active': activeTab === 2 }" x-show.transition.in.opacity.duration.600="activeTab === 2" id="terre"><Terre></Terre></div>
+    <div :class="{ 'active': activeTab === 3 }" x-show.transition.in.opacity.duration.600="activeTab === 3" id="mars"><Mars></Mars></div>
+    <div :class="{ 'active': activeTab === 4 }" x-show.transition.in.opacity.duration.600="activeTab === 4" id="jupiter"><Jupiter></Jupiter></div>
+    <div :class="{ 'active': activeTab === 5 }" x-show.transition.in.opacity.duration.600="activeTab === 5" id="saturne"><Saturne></Saturne></div>
+    <div :class="{ 'active': activeTab === 6 }" x-show.transition.in.opacity.duration.600="activeTab === 6" id="uranus"><Uranus></Uranus></div>
+    <div :class="{ 'active': activeTab === 7 }" x-show.transition.in.opacity.duration.600="activeTab === 7" id="neptune"><Neptune></Neptune></div>
+  </div> 
+  <a href="/SolarSystem" class="soleilMenu">
+    <img class="soleil" src="../../public/img/soleil.png">
+  </a> 
+<img class="spationaute" src="../../public/img/spationaute.png">
+  <div class="menu">  
+    <span
+    @click="activeTab = 0"
+    class="tab-control"
+    data-tab-id="mercury"
+    :class="{ 'active': activeTab === 0 }"
+  ><img src="../../public/img/mercure.png" alt=""></span>
+  <span
+    @click="activeTab = 1"
+    class="tab-control"
+    data-tab-id="venus"
+    :class="{ 'active': activeTab === 1 }"
+  ><img src="../../public/img/venus.png" alt=""></span>
+  <span
+    @click="activeTab = 2"
+    class="tab-control"
+    data-tab-id="terre"
+    :class="{ 'active': activeTab === 2 }"
+  ><img src="../../public/img/terre.png" alt=""></span>
+  <span
+  @click="activeTab = 3"
+  class="tab-control"
+  data-tab-id="mars"
+  :class="{ 'active': activeTab === 3 }"
+><img src="../../public/img/mars.png" alt=""></span>
+<span
+  @click="activeTab = 4"
+  class="tab-control"
+  data-tab-id="jupiter"
+  :class="{ 'active': activeTab === 4 }"
+><img src="../../public/img/jupiter.png" alt=""></span>
+<span
+  @click="activeTab = 5"
+  class="tab-control"
+  data-tab-id="saturne"
+  :class="{ 'active': activeTab === 5 }"
+><img class="saturne" src="../../public/img/saturne.png" alt=""></span>
+<span
+  @click="activeTab = 6"
+  class="tab-control"
+  data-tab-id="uranus"
+  :class="{ 'active': activeTab === 6 }"
+><img src="../../public/img/uranus.png" alt=""></span>
+<span
+  @click="activeTab = 7"
+  class="tab-control"
+  data-tab-id="neptune"
+  :class="{ 'active': activeTab === 7 }"
+><img src="../../public/img/neptune.png" alt=""></span>
+
+<div x-ref="rocket" class="rocket" :class="'rotate-' + activeTab" :style="'left: ' + (activeTab * 54) + 'px'">
+  <img src="../../public/img/rocket.png" alt="">
+</div>
+  </div>
+</div>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabControls = document.querySelectorAll(".tab-control");
+
+    tabControls.forEach((control, index) => {
+      control.addEventListener("click", () => {
+        const tabId = control.getAttribute("data-tab-id");
+        const newURL = window.location.href.split("#")[0] + "#" + tabId;
+        window.history.replaceState({}, "", newURL);
+      });
+    });
+
+    // Ajoutez la détection de l'ID de l'onglet dans l'URL au chargement de la page
+    const currentURL = window.location.href;
+    const tabIdFromURL = currentURL.split("#")[1];
+    if (tabIdFromURL) {
+      tabControls.forEach((control, index) => {
+        if (control.getAttribute("data-tab-id") === tabIdFromURL) {
+          // Activez l'onglet correspondant
+          control.click();
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+
+.rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  .rotate-1 {
+    transform: rotate(120deg);
+  }
+
+  .rotate-2 {
+    transform: rotate(280deg);
+  }
+
+  .rotate-3 {
+    transform: rotate(360deg);
+  }
+
+  .rotate-4 {
+    transform: rotate(240deg);
+  }
+
+  .rotate-5 {
+    transform: rotate(300deg);
+  }
+
+  .rotate-6 {
+    transform: rotate(360deg);
+  }
+
+  .rotate-7 {
+    transform: rotate(420deg);
+  }
+
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 44px;
+    transform: translate(-50%,0);
+  }
+.menu span {
+  cursor: pointer;
+}
+
+.rocket {
+  position: absolute;
+  width: 40px;
+  top: -54px;
+  transition: all 1s ease-out;
+}
+  img {
+    width: 40px;
+  }
+
+  .soleilMenu{
+    position: absolute;
+    z-index: 1;
+    left: 30vw;
+    bottom: 0;
+    transform: translate(0,14%);
+  }
+
+  .soleil {
+    width: 200px;
+  }
+  .saturne {
+    width: 70px;
+    margin: -16px;
+
+  }
+  .carouselPlanet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+  }
+  .spationaute {
+    width: 150px;
+    position: absolute;
+    left: 100px;
+    bottom: 150px;
+    animation: rotate-scale-up 15s ease-in-out infinite;
+  }
+
+@keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(1.2) rotateZ(45deg);
+            transform: scale(1.2) rotateZ(45deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(0deg);
+            transform: scale(1) rotateZ(0deg);
+  }
+}
+
+
+</style>
