@@ -24,61 +24,61 @@ import Venus from './Venus.astro';
     <div :class="{ 'active': activeTab === 7 }" x-show.transition.in.opacity.duration.600="activeTab === 7" id="neptune"><Neptune></Neptune></div>
   </div> 
   <a href="/SolarSystem" class="soleilMenu">
-    <img class="soleil" src="../../public/img/soleil.png">
+    <img class="soleil" src="/img/soleil.png">
   </a> 
-<img class="spationaute" src="../../public/img/spationaute.png">
+<img class="spationaute" src="/img/spationaute.png">
   <div class="menu">  
     <span
     @click="activeTab = 0"
     class="tab-control"
     data-tab-id="mercury"
     :class="{ 'active': activeTab === 0 }"
-  ><img src="../../public/img/mercure.png" alt=""></span>
+  ><img src="/img/mercure.png" alt=""></span>
   <span
     @click="activeTab = 1"
     class="tab-control"
     data-tab-id="venus"
     :class="{ 'active': activeTab === 1 }"
-  ><img src="../../public/img/venus.png" alt=""></span>
+  ><img src="/img/venus.png" alt=""></span>
   <span
     @click="activeTab = 2"
     class="tab-control"
     data-tab-id="terre"
     :class="{ 'active': activeTab === 2 }"
-  ><img src="../../public/img/terre.png" alt=""></span>
+  ><img src="/img/terre.png" alt=""></span>
   <span
   @click="activeTab = 3"
   class="tab-control"
   data-tab-id="mars"
   :class="{ 'active': activeTab === 3 }"
-><img src="../../public/img/mars.png" alt=""></span>
+><img src="/img/mars.png" alt=""></span>
 <span
   @click="activeTab = 4"
   class="tab-control"
   data-tab-id="jupiter"
   :class="{ 'active': activeTab === 4 }"
-><img src="../../public/img/jupiter.png" alt=""></span>
+><img src="/img/jupiter.png" alt=""></span>
 <span
   @click="activeTab = 5"
   class="tab-control"
   data-tab-id="saturne"
   :class="{ 'active': activeTab === 5 }"
-><img class="saturne" src="../../public/img/saturne.png" alt=""></span>
+><img class="saturne" src="/img/saturne.png" alt=""></span>
 <span
   @click="activeTab = 6"
   class="tab-control"
   data-tab-id="uranus"
   :class="{ 'active': activeTab === 6 }"
-><img src="../../public/img/uranus.png" alt=""></span>
+><img src="/img/uranus.png" alt=""></span>
 <span
   @click="activeTab = 7"
   class="tab-control"
   data-tab-id="neptune"
   :class="{ 'active': activeTab === 7 }"
-><img src="../../public/img/neptune.png" alt=""></span>
+><img src="/img/neptune.png" alt=""></span>
 
 <div x-ref="rocket" class="rocket" :class="'rotate-' + activeTab" :style="'left: ' + (activeTab * 54) + 'px'">
-  <img src="../../public/img/rocket.png" alt="">
+  <img src="/img/rocket.png" alt="">
 </div>
   </div>
 </div>
