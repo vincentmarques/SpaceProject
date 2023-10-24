@@ -33,52 +33,52 @@ import Venus from './Venus.astro';
     class="tab-control"
     data-tab-id="mercury"
     :class="{ 'active': activeTab === 0 }"
-  ><img src="/img/mercure.png" alt=""></span>
+  ><img src="/SpaceProject/img/mercure.png" alt=""></span>
   <span
     @click="activeTab = 1"
     class="tab-control"
     data-tab-id="venus"
     :class="{ 'active': activeTab === 1 }"
-  ><img src="/img/venus.png" alt=""></span>
+  ><img src="/SpaceProject/img/venus.png" alt=""></span>
   <span
     @click="activeTab = 2"
     class="tab-control"
     data-tab-id="terre"
     :class="{ 'active': activeTab === 2 }"
-  ><img src="/img/terre.png" alt=""></span>
+  ><img src="/SpaceProject/img/terre.png" alt=""></span>
   <span
   @click="activeTab = 3"
   class="tab-control"
   data-tab-id="mars"
   :class="{ 'active': activeTab === 3 }"
-><img src="/img/mars.png" alt=""></span>
+><img src="/SpaceProject/img/mars.png" alt=""></span>
 <span
   @click="activeTab = 4"
   class="tab-control"
   data-tab-id="jupiter"
   :class="{ 'active': activeTab === 4 }"
-><img src="/img/jupiter.png" alt=""></span>
+><img src="/SpaceProject/img/jupiter.png" alt=""></span>
 <span
   @click="activeTab = 5"
   class="tab-control"
   data-tab-id="saturne"
   :class="{ 'active': activeTab === 5 }"
-><img class="saturne" src="/img/saturne.png" alt=""></span>
+><img class="saturne" src="/SpaceProject/img/saturne.png" alt=""></span>
 <span
   @click="activeTab = 6"
   class="tab-control"
   data-tab-id="uranus"
   :class="{ 'active': activeTab === 6 }"
-><img src="/img/uranus.png" alt=""></span>
+><img src="/SpaceProject/img/uranus.png" alt=""></span>
 <span
   @click="activeTab = 7"
   class="tab-control"
   data-tab-id="neptune"
   :class="{ 'active': activeTab === 7 }"
-><img src="/img/neptune.png" alt=""></span>
+><img src="/SpaceProject/img/neptune.png" alt=""></span>
 
 <div x-ref="rocket" class="rocket" :class="'rotate-' + activeTab" :style="'left: ' + (activeTab * 54) + 'px'">
-  <img src="/img/rocket.png" alt="">
+  <img src="/SpaceProject/img/rocket.png" alt="">
 </div>
   </div>
 </div>
